@@ -6,6 +6,9 @@ extern int errno;
 #include "../../lv_examples.h"
 #if LV_USE_LABEL && LV_BUILD_EXAMPLES
 
+LV_FONT_DECLARE(bauhaus_16_compressed_array)
+LV_FONT_DECLARE(bauhaus_16_notcompressed_array)
+
 /**
  * Show line wrap, re-color, line align and text scrolling.
  */
@@ -75,7 +78,7 @@ void lv_example_label_1(void)
 	lv_label_set_long_mode(label_00, LV_LABEL_LONG_WRAP);     /*Break the long lines*/
 	lv_label_set_recolor(label_00, true);                      /*Enable re-coloring by commands in the text*/
   lv_label_set_text(label_00, "#0000ff Monserrat 16 # \nAa Bb Cc Dd Ee Ff Gg Hi Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz 0123456789.\n#ff0000 Not Compressed. #");
-	lv_obj_set_width(label_00, 150);  /*Set smaller width to make the lines wrap*/
+	lv_obj_set_width(label_00, 200);  /*Set smaller width to make the lines wrap*/
 	lv_obj_set_style_text_align(label_00, LV_TEXT_ALIGN_CENTER, 0);
   lv_obj_align(label_00, LV_ALIGN_OUT_TOP_LEFT, 0, 0);
 
@@ -94,7 +97,7 @@ void lv_example_label_1(void)
 	lv_label_set_long_mode(label_01, LV_LABEL_LONG_WRAP);     /*Break the long lines*/
 	lv_label_set_recolor(label_01, true);                      /*Enable re-coloring by commands in the text*/
   lv_label_set_text(label_01, "#0000ff Monserrat 16 # \nAa Bb Cc Dd Ee Ff Gg Hi Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz 0123456789.\n#ff0000 Compressed. #");
-	lv_obj_set_width(label_01, 150);  /*Set smaller width to make the lines wrap*/
+	lv_obj_set_width(label_01, 200);  /*Set smaller width to make the lines wrap*/
 	lv_obj_set_style_text_align(label_01, LV_TEXT_ALIGN_CENTER, 0);
   lv_obj_align(label_01, LV_ALIGN_OUT_TOP_LEFT, 0, 200);
   static lv_font_t * my_font_01 = NULL;
@@ -112,7 +115,7 @@ void lv_example_label_1(void)
 	lv_label_set_long_mode(label_02, LV_LABEL_LONG_WRAP);     /*Break the long lines*/
 	lv_label_set_recolor(label_02, true);                      /*Enable re-coloring by commands in the text*/
   lv_label_set_text(label_02, "#0000ff Bauhaus 16 # \nAa Bb Cc Dd Ee Ff Gg Hi Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz 0123456789.\n#ff0000 Not Compressed. #");
-	lv_obj_set_width(label_02, 150);  /*Set smaller width to make the lines wrap*/
+	lv_obj_set_width(label_02, 200);  /*Set smaller width to make the lines wrap*/
 	lv_obj_set_style_text_align(label_02, LV_TEXT_ALIGN_CENTER, 0);
   lv_obj_align(label_02, LV_ALIGN_OUT_TOP_LEFT, 200, 0);
 
@@ -131,7 +134,7 @@ void lv_example_label_1(void)
 	lv_label_set_long_mode(label_03, LV_LABEL_LONG_WRAP);     /*Break the long lines*/
 	lv_label_set_recolor(label_03, true);                      /*Enable re-coloring by commands in the text*/
   lv_label_set_text(label_03, "#0000ff Bauhaus 16 # \nAa Bb Cc Dd Ee Ff Gg Hi Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz 0123456789.\n#ff0000 Compressed. #");
-	lv_obj_set_width(label_03, 150);  /*Set smaller width to make the lines wrap*/
+	lv_obj_set_width(label_03, 200);  /*Set smaller width to make the lines wrap*/
 	lv_obj_set_style_text_align(label_03, LV_TEXT_ALIGN_CENTER, 0);
   lv_obj_align(label_03, LV_ALIGN_OUT_TOP_LEFT, 200, 200);
 
@@ -183,6 +186,29 @@ void lv_example_label_1(void)
   else{
     printf("Loading Compressed font from drive failed!\r\n");
   }
+
+	lv_obj_t * label_06 = lv_label_create(lv_scr_act());
+	lv_label_set_long_mode(label_06, LV_LABEL_LONG_WRAP);     /*Break the long lines*/
+	lv_label_set_recolor(label_06, true);                      /*Enable re-coloring by commands in the text*/
+  lv_label_set_text(label_06, "#0000ff Bauhaus 16 C Array# \nAa Bb Cc Dd Ee Ff Gg Hi Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz 0123456789.\n#ff0000 Not Compressed. #");
+	lv_obj_set_width(label_06, 200);  /*Set smaller width to make the lines wrap*/
+	lv_obj_set_style_text_align(label_06, LV_TEXT_ALIGN_CENTER, 0);
+  lv_obj_align(label_06, LV_ALIGN_OUT_TOP_LEFT, 200+200+200, 0);
+
+  static lv_font_t * my_font_06 = &bauhaus_16_notcompressed_array;
+  lv_obj_set_style_text_font(label_06, my_font_06, LV_PART_MAIN | LV_STATE_DEFAULT);
+
+	lv_obj_t * label_07 = lv_label_create(lv_scr_act());
+	lv_label_set_long_mode(label_07, LV_LABEL_LONG_WRAP);     /*Break the long lines*/
+	lv_label_set_recolor(label_07, true);                      /*Enable re-coloring by commands in the text*/
+  lv_label_set_text(label_07, "#0000ff Bauhaus 16 C Array# \nAa Bb Cc Dd Ee Ff Gg Hi Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz 0123456789.\n#ff0000 Compressed. #");
+	lv_obj_set_width(label_07, 200);  /*Set smaller width to make the lines wrap*/
+	lv_obj_set_style_text_align(label_07, LV_TEXT_ALIGN_CENTER, 0);
+  lv_obj_align(label_07, LV_ALIGN_OUT_TOP_LEFT, 200+200+200, 200);
+
+  static lv_font_t * my_font_07 = &bauhaus_16_compressed_array;
+  lv_obj_set_style_text_font(label_07, my_font_07, LV_PART_MAIN | LV_STATE_DEFAULT);
+
 }
 
 #endif
